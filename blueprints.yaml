@@ -199,6 +199,30 @@ form:
       validate:
         type: bool
 
+    admin_index.on_save:
+      type: toggle
+      label: Update Index On Update
+      help: Update the index when a page is modified through the admin. Beware: if you disable, you'll have to reindex manually or using a cron!
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type:
+
+    admin_index.on_delete:
+      type: toggle
+      label: Update Index On Delete
+      help: Update the index when a page is deleted through the admin. Beware: if you disable, you'll have to reindex manually or using a cron!
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
     filter.items:
       type: textarea
       size: large

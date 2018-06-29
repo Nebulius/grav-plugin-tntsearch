@@ -16,6 +16,9 @@ limit: 20
 min: 3
 snippet: 300
 index_page_by_default: true
+admin_index:
+  on_save: true
+  on_delete: true
 filter:
   items:
     - root@.descendants

@@ -74,11 +74,18 @@ class TNTSearchPlugin extends Plugin
             $this->enable([
                 'onAdminMenu' => ['onAdminMenu', 0],
                 'onAdminTaskExecute' => ['onAdminTaskExecute', 0],
-                'onAdminAfterSave' => ['onAdminAfterSave', 0],
-                'onAdminAfterDelete' => ['onAdminAfterDelete', 0],
                 'onTwigSiteVariables' => ['onTwigAdminVariables', 0],
                 'onTwigLoader' => ['addAdminTwigTemplates', 0],
             ]);
+
+            if ($this->config->get('plugins.tntsearch.admin_index.on_save')) {
+                  $this->enable(['onAdminAfterSave' => ['onAdminAfterSave', 0]]);
+            }
+
+            if ($this->config->get('plugins.tntsearch.admin_index.on_delete')) {
+                $this->enable(['onAdminAfterDelete' => ['onAdminAfterDelete', 0]]);
+            }
+
             return;
         }
 
